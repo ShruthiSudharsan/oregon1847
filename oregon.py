@@ -141,15 +141,31 @@ day = 0
 alive = True
 arrived = False
 
+print("DO YOU WANT TO EAT (1) POORLY (2) MODERATELY")
+choiceOfEating = raw_input("OR (3) WELL? ")
+
 # BEGIN JOURNEY
 while alive == True and arrived == False:
-    if day != 0 and day != 19:
+    # increment day each turn
+    day = day + 1
+    if day != 1 and day != 20:
         mileage = mileage + 108
-    elif day == 19:
+    elif day == 20:
         mileage = mileage + 96
 
+    # decrease supply of food at the end of each turn
+    if choiceOfEating == 1 and day != 1:
+        food = food - 8
+    elif choiceOfEating == 2 and day != 1:
+        food = food - 13
+    elif choiceOfEating == 3 and day != 1:
+        food = food - 23
+    else:
+        if day != 1:
+            food = food - 13
+
     print("")
-    print(date[day])
+    print(date[day - 1])
     print("")
     print("TOTAL MILEAGE: " + str(mileage))
     print("FOOD: " + str(food))
@@ -163,22 +179,22 @@ while alive == True and arrived == False:
     huntOrContinue = raw_input("DO YOU WANT TO (1) HUNT, OR (2) CONTINUE? ")
     print("USER SELECTS: " + huntOrContinue)
     '''
-    raw_input("PRESS <ENTER> TO CONTINUE")
 
     # SET ARRIVED EQUAL TO TRUE ON DECEMBER 20TH.
     # THIS IS A LITTLE HACK ADDED DURING DEVELOPMENT
     # WHICH NEEDS TO BE REMOVED LATER.
-    if day == 19:
+    if day == 20:
         arrived = True
 
-    day = day + 1
+    if arrived == False:
+        raw_input("PRESS <ENTER> TO CONTINUE")
 
-if alive == True:
-    welcomeMessage = """
-     PRESIDENT JAMES K. POLK SENDS YOU HIS
-           HEARTIEST CONGRATULATIONS
+    if arrived == True and alive == True:
+        welcomeMessage = """
+PRESIDENT JAMES K. POLK SENDS YOU HIS
+     HEARTIEST CONGRATULATIONS
 
-    AND WISHES YOU A PROSPEROUS LIFE AHEAD
-               AT YOUR NEW HOME
-    """
-    print(welcomeMessage)
+AND WISHES YOU A PROSPEROUS LIFE AHEAD
+          AT YOUR NEW HOME
+"""
+        print(welcomeMessage)
