@@ -126,6 +126,11 @@ arrived = False
 
 # BEGIN JOURNEY
 while alive == True and arrived == False:
+    if day != 0 and day != 19:
+        mileage = mileage + 108
+    elif day == 19:
+        mileage = mileage + 96
+
     print("")
     print(date[day])
     print("")
@@ -136,17 +141,20 @@ while alive == True and arrived == False:
     print("MISC. SUPPLIES: " + str(supplies))
     print("CASH: " + str(cash))
     print("")
+
     '''
     huntOrContinue = raw_input("DO YOU WANT TO (1) HUNT, OR (2) CONTINUE? ")
     print("USER SELECTS: " + huntOrContinue)
     '''
     raw_input("PRESS <ENTER> TO CONTINUE")
-    day = day + 1
+
     # SET ARRIVED EQUAL TO TRUE ON DECEMBER 20TH.
     # THIS IS A LITTLE HACK ADDED DURING DEVELOPMENT
     # WHICH NEEDS TO BE REMOVED LATER.
     if day == 19:
         arrived = True
+
+    day = day + 1
 
 if alive == True:
     welcomeMessage = """
