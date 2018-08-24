@@ -1,4 +1,4 @@
-userInput = raw_input("DO YOU NEED INSTRUCTIONS (YES/NO)?")
+userInput = raw_input("DO YOU NEED INSTRUCTIONS (YES/NO)? ")
 
 instructions = """
 THIS PROGRAM SIMULATES A TRIP OVER THE OREGON TRAIL FROM
@@ -61,22 +61,32 @@ print("    (5) SHAKY KNEES")
 print("")
 print("ENTER ONE OF THE ABOVE -- THE BETTER YOU CLAIM YOU ARE, THE")
 print("FASTER YOU'LL HAVE TO BE WITH YOUR GUN TO BE SUCCESSFUL.")
-huntingDifficultyLevel = raw_input("?")
+huntingDifficultyLevel = raw_input("? ")
 print("")
 
 # ENTER EXPENDITURES
 expendituresEntered = False
 while expendituresEntered == False:
-    amountSpentOnOxen = raw_input("HOW MUCH DO YOU WANT TO SPEND ON YOUR OXEN TEAM?")
-    amountSpentOnFood = raw_input("HOW MUCH DO YOU WANT TO SPEND ON FOOD?")
-    amountSpentOnAmmunition = raw_input("HOW MUCH DO YOU WANT TO SPEND ON AMMUNITION?")
-    amountSpentOnClothing = raw_input("HOW MUCH DO YOU WANT TO SPEND ON CLOTHING?")
-    amountSpentOnSupplies = raw_input("HOW MUCH DO YOU WANT TO SPEND ON MISCELLANEOUS SUPPLIES?")
+    # prompt user to enter expenditure amounts
+    amountSpentOnOxen = raw_input("HOW MUCH DO YOU WANT TO SPEND ON YOUR OXEN TEAM? ")
+    amountSpentOnFood = raw_input("HOW MUCH DO YOU WANT TO SPEND ON FOOD? ")
+    amountSpentOnAmmunition = raw_input("HOW MUCH DO YOU WANT TO SPEND ON AMMUNITION? ")
+    amountSpentOnClothing = raw_input("HOW MUCH DO YOU WANT TO SPEND ON CLOTHING? ")
+    amountSpentOnSupplies = raw_input("HOW MUCH DO YOU WANT TO SPEND ON MISCELLANEOUS SUPPLIES? ")
+    # cast expenditure variables as integers
+    amountSpentOnOxen = int(amountSpentOnOxen)
+    amountSpentOnFood = int(amountSpentOnFood)
+    amountSpentOnAmmunition = int(amountSpentOnAmmunition)
+    amountSpentOnClothing = int(amountSpentOnClothing)
+    amountSpentOnSupplies = int(amountSpentOnSupplies)
+    # calculate amount spent
     amountSpent = amountSpentOnOxen + amountSpentOnFood + amountSpentOnAmmunition + amountSpentOnClothing + amountSpentOnSupplies
+    # determine whether player has spent too much, not enough, or just the right amount
     if amountSpent <= 700 and amountSpentOnOxen >= 200 and amountSpentOnOxen <= 300:
         expendituresEntered = True
         dollarsLeft = 700 - amountSpent
-        print("AFTER ALL OF YOUR PURCHASES, YOU NOW HAVE " + dollarsLeft + " DOLLARS LEFT.")
+        print("")
+        print("AFTER ALL OF YOUR PURCHASES, YOU NOW HAVE " + str(dollarsLeft) + " DOLLARS LEFT.")
     else:
         print("")
         print("IMPOSSIBLE")
@@ -85,7 +95,7 @@ while expendituresEntered == False:
 # SET GAMEPLAY VARIABLES
 mileage = 0
 food = amountSpentOnFood
-bullets = amountSpentOnBullets * 50
+bullets = amountSpentOnAmmunition * 50
 clothing = amountSpentOnClothing
 supplies = amountSpentOnSupplies
 cash = 700 - amountSpentOnOxen - amountSpentOnFood - amountSpentOnAmmunition - amountSpentOnClothing - amountSpentOnSupplies
@@ -94,11 +104,12 @@ cash = 700 - amountSpentOnOxen - amountSpentOnFood - amountSpentOnAmmunition - a
 print("")
 print("MONDAY MARCH 29 1847")
 print("")
-print("TOTAL MILEAGE: " + mileage)
-print("FOOD: " + food)
-print("BULLETS: " + bullets)
-print("CLOTHING: " + clothing)
-print("MISC. SUPPLIES: " + supplies)
-print("CASH: " + cash)
+print("TOTAL MILEAGE: " + str(mileage))
+print("FOOD: " + str(food))
+print("BULLETS: " + str(bullets))
+print("CLOTHING: " + str(clothing))
+print("MISC. SUPPLIES: " + str(supplies))
+print("CASH: " + str(cash))
+print("")
 huntOrContinue = raw_input("DO YOU WANT TO (1) HUNT, OR (2) CONTINUE? ")
 print("USER SELECTS: " + huntOrContinue)
