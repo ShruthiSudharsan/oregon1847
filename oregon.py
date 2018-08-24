@@ -99,17 +99,61 @@ bullets = amountSpentOnAmmunition * 50
 clothing = amountSpentOnClothing
 supplies = amountSpentOnSupplies
 cash = 700 - amountSpentOnOxen - amountSpentOnFood - amountSpentOnAmmunition - amountSpentOnClothing - amountSpentOnSupplies
+date = []
+date.append("MONDAY MARCH 29 1847")
+date.append("MONDAY APRIL 12 1847")
+date.append("MONDAY APRIL 26 1847")
+date.append("MONDAY MAY 10 1847")
+date.append("MONDAY MAY 24 1847")
+date.append("MONDAY JUNE 7 1847")
+date.append("MONDAY JUNE 21 1847")
+date.append("MONDAY JULY 5 1847")
+date.append("MONDAY JULY 19 1847")
+date.append("MONDAY AUGUST 2 1847")
+date.append("MONDAY AUGUST 16 1847")
+date.append("MONDAY AUGUST 30 1847")
+date.append("MONDAY SEPTEMBER 13 1847")
+date.append("MONDAY SEPTEMBER 27 1847")
+date.append("MONDAY OCTOBER 11 1847")
+date.append("MONDAY OCTOBER 25 1847")
+date.append("MONDAY NOVEMBER 8 1847")
+date.append("MONDAY NOVEMBER 22 1847")
+date.append("MONDAY DECEMBER 6 1847")
+date.append("MONDAY DECEMBER 20 1847")
+day = 0
+alive = True
+arrived = False
 
 # BEGIN JOURNEY
-print("")
-print("MONDAY MARCH 29 1847")
-print("")
-print("TOTAL MILEAGE: " + str(mileage))
-print("FOOD: " + str(food))
-print("BULLETS: " + str(bullets))
-print("CLOTHING: " + str(clothing))
-print("MISC. SUPPLIES: " + str(supplies))
-print("CASH: " + str(cash))
-print("")
-huntOrContinue = raw_input("DO YOU WANT TO (1) HUNT, OR (2) CONTINUE? ")
-print("USER SELECTS: " + huntOrContinue)
+while alive == True and arrived == False:
+    print("")
+    print(date[day])
+    print("")
+    print("TOTAL MILEAGE: " + str(mileage))
+    print("FOOD: " + str(food))
+    print("BULLETS: " + str(bullets))
+    print("CLOTHING: " + str(clothing))
+    print("MISC. SUPPLIES: " + str(supplies))
+    print("CASH: " + str(cash))
+    print("")
+    '''
+    huntOrContinue = raw_input("DO YOU WANT TO (1) HUNT, OR (2) CONTINUE? ")
+    print("USER SELECTS: " + huntOrContinue)
+    '''
+    raw_input("PRESS <ENTER> TO CONTINUE")
+    day = day + 1
+    # SET ARRIVED EQUAL TO TRUE ON DECEMBER 20TH.
+    # THIS IS A LITTLE HACK ADDED DURING DEVELOPMENT
+    # WHICH NEEDS TO BE REMOVED LATER.
+    if day == 19:
+        arrived = True
+
+if alive == True:
+    welcomeMessage = """
+     PRESIDENT JAMES K. POLK SENDS YOU HIS
+           HEARTIEST CONGRATULATIONS
+
+    AND WISHES YOU A PROSPEROUS LIFE AHEAD
+               AT YOUR NEW HOME
+    """
+    print(welcomeMessage)
