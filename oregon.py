@@ -61,7 +61,7 @@ print("    (5) SHAKY KNEES")
 print("")
 print("ENTER ONE OF THE ABOVE -- THE BETTER YOU CLAIM YOU ARE, THE")
 print("FASTER YOU'LL HAVE TO BE WITH YOUR GUN TO BE SUCCESSFUL.")
-huntingDifficultyLevel = raw_input("? ")
+shootingExpertiseLevel = raw_input("? ")
 print("")
 
 # ENTER EXPENDITURES
@@ -94,10 +94,26 @@ while expendituresEntered == False:
 
 # SET GAMEPLAY VARIABLES
 mileage = 0
+oxen = amountSpentOnOxen
 food = amountSpentOnFood
 bullets = amountSpentOnAmmunition * 50
 clothing = amountSpentOnClothing
 supplies = amountSpentOnSupplies
+gunFireResponseTime = 0
+gunFireStartClockTime = 0
+insufficientClothingInColdWinter = False
+userInput = ""
+turnNumber = 1
+choiceOfEating = 2
+clearedSouthPass = False
+clearedBlueMountains = False
+injured = False
+blizzard = False
+ill = False
+hostilityOfRider = False
+gunFirePrompt = ["BANG", "BLAM", "POW", "WHAM"]
+tacticSelectedWhenAttacked = 0
+stopAtFort = False
 cash = 700 - amountSpentOnOxen - amountSpentOnFood - amountSpentOnAmmunition - amountSpentOnClothing - amountSpentOnSupplies
 date = []
 date.append("MONDAY MARCH 29 1847")
@@ -120,6 +136,7 @@ date.append("MONDAY NOVEMBER 8 1847")
 date.append("MONDAY NOVEMBER 22 1847")
 date.append("MONDAY DECEMBER 6 1847")
 date.append("MONDAY DECEMBER 20 1847")
+currentDate = date[turnNumber - 1]
 day = 0
 alive = True
 arrived = False
