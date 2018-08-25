@@ -140,9 +140,7 @@ currentDate = date[turnNumber - 1]
 day = 0
 alive = True
 arrived = False
-
-print("DO YOU WANT TO EAT (1) POORLY (2) MODERATELY")
-choiceOfEating = raw_input("OR (3) WELL? ")
+choiceOfEating = 0
 
 # BEGIN JOURNEY
 while alive == True and arrived == False:
@@ -186,9 +184,6 @@ while alive == True and arrived == False:
     if day == 20:
         arrived = True
 
-    if arrived == False:
-        raw_input("PRESS <ENTER> TO CONTINUE")
-
     if arrived == True and alive == True:
         welcomeMessage = """
 PRESIDENT JAMES K. POLK SENDS YOU HIS
@@ -198,3 +193,18 @@ AND WISHES YOU A PROSPEROUS LIFE AHEAD
           AT YOUR NEW HOME
 """
         print(welcomeMessage)
+
+    if day != 20 and arrived == False and alive == True:
+        # STOP, HUNT, OR CONTINUE?
+        if day % 2 == 0:
+            print("DO YOU WANT TO (1) HUNT, OR (2) CONTINUE")
+            huntOrContinue = raw_input("? ")
+        else:
+            print("DO YOU WANT TO (1) STOP AT THE NEXT FORT, (2) HUNT, OR (3) CONTINUE")
+            huntOrContinue = raw_input("? ")
+        # HOW WELL DO YOU WANT TO EAT?
+        print("DO YOU WANT TO EAT (1) POORLY (2) MODERATELY")
+        choiceOfEating = raw_input("OR (3) WELL? ")
+
+        print("huntOrContinue: " + huntOrContinue)
+        print("choiceOfEating: " + choiceOfEating)
